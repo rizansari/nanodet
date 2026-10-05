@@ -14,14 +14,21 @@
 
 import argparse
 import os
+import sys
 
 import onnx
 import onnxsim
 import torch
 
+# Calculate absolute path to the root directory
+# (Adjust the number of os.path.dirname calls depending on how deep this file is)
+root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
+if root_path not in sys.path:
+    sys.path.insert(0, root_path)
+
 from nanodet.model.arch import build_model
 from nanodet.util import Logger, cfg, load_config, load_model_weight
-
 
 def generate_ouput_names(head_cfg):
     cls_names, dis_names = [], []

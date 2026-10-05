@@ -5,6 +5,7 @@ numpy
 omegaconf>=2.0.1
 onnx
 onnx-simplifier
+onnxruntime
 opencv-python
 pyaml
 pycocotools
